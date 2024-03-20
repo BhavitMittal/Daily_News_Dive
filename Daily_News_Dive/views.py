@@ -42,6 +42,7 @@ def news(request):
     'Published at':f"Published At: {articles[0]['publishedAt']}",
     'Description':f"Description: {articles[0]['description']}",
     'URL':f"{articles[0]['url']}",
-    'Content':f"Content: {articles[0]['content']}"
+    'Content':f"Content: {articles[0]['content']}",
+    'urlToImage':f"{articles[0]['urlToImage']}"
     }
     return render(request,"news.html",d)
