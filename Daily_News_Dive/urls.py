@@ -17,10 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from service import views as s
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', views.index,name='index'),
     path('',views.home,name=''),
-    path('news/', views.news,name='cricket')
+    path('news/', views.news,name='news'),
+    path('entertainment/', views.entertainment , name='entertainment'),
+    path('login/', s.Loginpage,name='login'),
+    path('signup/', s.Signuppage,name='signup')
 ]

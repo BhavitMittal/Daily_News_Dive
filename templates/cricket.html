@@ -186,7 +186,7 @@
 
         #aa {
             height: 250px;
-            background-image: url("{{i.urlToImage}}");
+            background-image: url("{{urlToImage0}}");
             background-size: cover;
         }
 
@@ -295,44 +295,39 @@
                 </ul>
             </div>
             <div class="search-bar flex">
-                <form class="example"  method="post" >
+                <form class="example" action="{% url 'news'%}" method="post">
                     {% csrf_token %}
-                    <input type="text" class="news-input" id="search-text" placeholder="e.g. Science" name="query" >
-                    <button class="search-button" id="search-button" type="submit">Search</button>
+                    <input type="text" class="news-input" id="search-text" placeholder="e.g. Science" name="topic">
+                    <button class="search-button" id="search-button">Search</button>
                 </form>
             </div>
         </div>
     </nav>
     <div id="op">
         <button type="button">science</button>
-        <button>Technology</button>
+        <button>technology</button>
         <button>sports</button>
         <button>finance</button>
         <button>education</button>
-        <a href="/entertainment" target="_blank">
-            <button>entertainment</button>
-        </a>
-        
+        <button>entertainment</button>
     </div>
 
     <div class="box">
-        {%for i in l%}
         <div id="a">
-            <div id="aa" style="background-image: url('{{i.urlToImage}}');background-size: cover;">
+            <div id="aa">
 
             </div>
             <div id="ab">
-                <a href="{{i.url}}"><b>{{i.title}}</b></a>
+                <b>{{Title0}}</b>
             </div>
 
         </div>
-        {% endfor %}
-        <!-- <div id="b">
+        <div id="b">
             <div id="ba">
 
             </div>
             <div id="bb">
-                <a href="{{URL1}}"><b>{{Title1}}</b></a>
+                <b>{{Title1}}</b>
             </div>
 
         </div>
@@ -341,7 +336,7 @@
 
             </div>
             <div id="cb">
-                <a href="{{URL2}}"><b>{{Title2}}</b></a>
+                <b>{{Title2}}</b>
             </div>
         </div>
         <div id="d">
@@ -349,7 +344,7 @@
 
             </div>
             <div id="db">
-                <a href="{{URL3}}"><b>{{Title3}}</b></a>
+                <b>{{Title3}}</b>
             </div>
         </div>
         <div id="e">
@@ -357,7 +352,7 @@
 
             </div>
             <div id="eb">
-                <a href="{{URL4}}"><b>{{Title4}}</b></a>
+                <b>{{Title4}}</b>
             </div> 
         </div>
         <div id="f">
@@ -365,7 +360,7 @@
 
             </div>
             <div id="fb">
-                <a href="{{URL5}}"><b>{{Title5}}</b></a>
+                <b>{{Title5}}</b>
             </div>
         </div>
         <div id="g">
@@ -373,7 +368,7 @@
 
             </div>
             <div id="gb">
-                <a href="{{URL6}}"><b>{{Title6}}</b></a>
+                <b>{{Title6}}</b>
             </div>
         </div>
         <div id="h">
@@ -381,9 +376,12 @@
 
             </div>
             <div id="hb">
-                <a href="{{URL7}}"><b>{{Title7}}</b></a>
+                <b>{{Title7}}</b>
             </div>
-        </div> -->
+        </div>
+
+
+
     </div>
 
 </body>

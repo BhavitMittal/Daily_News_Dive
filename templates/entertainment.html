@@ -186,7 +186,7 @@
 
         #aa {
             height: 250px;
-            background-image: url("{{i.urlToImage}}");
+            background-image: url("{{urlToImage0}}");
             background-size: cover;
         }
 
@@ -295,39 +295,34 @@
                 </ul>
             </div>
             <div class="search-bar flex">
-                <form class="example"  method="post" >
+                <form class="example" action="{% url 'news'%}" method="post">
                     {% csrf_token %}
-                    <input type="text" class="news-input" id="search-text" placeholder="e.g. Science" name="query" >
-                    <button class="search-button" id="search-button" type="submit">Search</button>
+                    <input type="text" class="news-input" id="search-text" placeholder="e.g. Science" name="topic">
+                    <button class="search-button" id="search-button">Search</button>
                 </form>
             </div>
         </div>
     </nav>
     <div id="op">
         <button type="button">science</button>
-        <button>Technology</button>
+        <button>technology</button>
         <button>sports</button>
         <button>finance</button>
         <button>education</button>
-        <a href="/entertainment" target="_blank">
-            <button>entertainment</button>
-        </a>
-        
+        <button>entertainment</button>
     </div>
 
     <div class="box">
-        {%for i in l%}
         <div id="a">
-            <div id="aa" style="background-image: url('{{i.urlToImage}}');background-size: cover;">
+            <div id="aa">
 
             </div>
             <div id="ab">
-                <a href="{{i.url}}"><b>{{i.title}}</b></a>
+                <a href="{{URL0}}"><b>{{Title0}}</b></a>
             </div>
 
         </div>
-        {% endfor %}
-        <!-- <div id="b">
+        <div id="b">
             <div id="ba">
 
             </div>
@@ -383,7 +378,10 @@
             <div id="hb">
                 <a href="{{URL7}}"><b>{{Title7}}</b></a>
             </div>
-        </div> -->
+        </div>
+
+
+
     </div>
 
 </body>
