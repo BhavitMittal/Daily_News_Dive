@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(61, 62, 61);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 300px;
+            margin: 100px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px; 
+            transition: background-color 0.3s ease; 
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        input[type="checkbox"] {
+            transform: scale(2); 
+            margin-right: 10px;
+        }
+
+        .checkbox-item {
+            margin-right: 10px;
+        }
+        #skip{background-color: rgba(89, 89, 87, 0.993);}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Choose Your Interests</h2>
+        <form id="interest" method="post" >
+            {% csrf_token %}
+            <div class="form-group checkbox-group">
+                <input type="checkbox" name="science" > Science<br><br>
+                <input type="checkbox" name="technology" > Technology<br><br>
+                <input type="checkbox" name="sports" > Sports<br><br>
+                <input type="checkbox" name="finance" > Finance<br><br>
+                <input type="checkbox" name="education"> Education<br><br>
+                <input type="checkbox" name="entertainment"> Entertainment<br>
+                
+            </div>
+         <pre>               <button type="submit" id="save">Save</button></span></pre>  
+        </form>
+    </div>
+
+    
+</body>
+</html>

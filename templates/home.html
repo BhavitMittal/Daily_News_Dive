@@ -1,75 +1,346 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {
-  font-family: Arial;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
-
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
-}
-
-form.example button:hover {
-  background: #0b7dda;
-}
-
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-</style>
-</head>
-<body>
-<form class="example" action="/news/" style="margin:auto;max-width:300px" method="post">
-    {% csrf_token %}
-  <input type="text" placeholder="Search.." name="topic">
-  <button type="submit" name="topic"><i class="fa fa-search"></i></button>
-</form>
-
-</body>
-</html> 
-
- -->
-
-
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>News App</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-text-color: #183b56;
+            --secondary-text-color: #577592;
+            --accent-color: #2294ed;
+            --accent-color-dark: #1d69a3;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: var(--primary-text-color);
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        p {
+            color: var(--secondary-text-color);
+            line-height: 1.4rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin-inline: auto;
+            overflow: hidden;
+        }
+
+        nav {
+            background-color: #f3faff;
+            box-shadow: 0 0 4px #bbd0e2;
+            position: fixed;
+            top: 0;
+            z-index: 99;
+            left: 0;
+            right: 0;
+        }
+
+        .main-nav {
+            justify-content: space-between;
+            padding-block: 8px;
+        }
+
+        .company-logo img {
+            width: 120px;
+        }
+
+        .nav-links ul {
+            gap: 16px;
+        }
+
+        .hover-link {
+            cursor: pointer;
+        }
+
+        .hover-link:hover {
+            color: var(--secondary-text-color);
+        }
+
+        .hover-link:active {
+            color: red;
+        }
+
+        .nav-item.active {
+            color: var(--accent-color);
+        }
+
+        .search-bar {
+            height: 32px;
+            gap: 8px;
+        }
+
+        .news-input {
+            width: 200px;
+            height: 100%;
+            padding-inline: 12px;
+            border-radius: 4px;
+            border: 2px solid #bbd0e2;
+        }
+
+        .img {
+            mix-blend-mode: multiply;
+        }
+
+        .search-button {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: var(--accent-color-dark);
+        }
+
+        #op {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 60px;
+            border: none;
+        }
+
+        button {
+            height: 30px;
+            width: 83px;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #f3faff;
+        }
+
+        .box {
+            margin-top: 10px;
+
+            display: grid;
+
+
+            grid-template-columns: repeat(4, 1fr);
+
+            grid-auto-rows: 350px;
+            grid-auto-columns: 400px;
+            column-gap: 20px;
+            row-gap: 20px;
+        }
+
+        #a {
+            text-align: center;
+            /* border: 2px solid black; */
+        }
+
+        #b {
+            text-align: center;
+            /* border: 2px solid black; */
+        }
+
+        #c {
+            text-align: center;
+            /* border: 2px solid black; */
+        }
+
+        #d {
+            text-align: center;
+            /* border: 2px solid black; */
+        }
+
+        #e {
+            text-align: center;
+            /* border: 2px solid black; */
+        }
+
+        #f {
+            text-align: center;
+            /* border: 2px solid black; */
+        }
+
+        #g {
+            text-align: center;
+            /* border: 2px solid black; */
+        }
+
+        #h {
+            text-align: center;
+            /* border: 2px solid black; */
+        }
+
+        #aa {
+            height: 250px;
+            background-image: url("{{i.urlToImage}}");
+            background-size: cover;
+        }
+
+        #ab {
+            height: 100px;
+            background-color: rgb(135, 249, 249);
+        }
+
+        #ba {
+            height: 250px;
+            background-image: url("{{urlToImage1}}");
+            background-size: cover;
+        }
+
+        #bb {
+            height: 100px;
+            background-color: rgb(194, 187, 187);
+        }
+
+        #ca {
+            height: 250px;
+            background-image: url("{{urlToImage2}}");
+            background-size: cover;
+        }
+
+        #cb {
+            height: 100px;
+            background-color: rgb(194, 187, 187);
+        }
+
+        #da {
+            height: 250px;
+            background-image: url("{{urlToImage3}}");
+            background-size: cover;
+        }
+
+        #db {
+            height: 100px;
+            background-color: rgb(194, 187, 187);
+        }
+
+        #ea {
+            height: 250px;
+            background-image: url("{{urlToImage4}}");
+            background-size: cover;
+        }
+
+        #eb {
+            height: 100px;
+            background-color: rgb(194, 187, 187);
+        }
+
+        #fa {
+            height: 250px;
+            background-image: url("{{urlToImage5}}");
+            background-size: cover;
+        }
+
+        #fb {
+            height: 100px;
+            background-color: rgb(194, 187, 187);
+        }
+
+        #ga {
+            height: 250px;
+            background-image: url("{{urlToImage6}}");
+            background-size: cover;
+        }
+
+        #gb {
+            height: 100px;
+            background-color: rgb(194, 187, 187);
+        }
+
+        #ha {
+            height: 250px;
+            background-image: url("{{urlToImage7}}");
+            background-size: cover;
+        }
+
+        #hb {
+            height: 100px;
+            background-color: rgb(194, 187, 187);
+        }
+        #ab,#bb,#cb,#db,#eb,#fb,#gb,#hb{
+            overflow: hidden;
+        }
+        #aa,#ba,#ca,#da,#ea,#fa,#ga,#ha{
+            /* border-bottom: 2px solid red; */
+        }
+
+    </style>
 </head>
+
 <body>
-    <form method="post">
-        {% csrf_token %}
-            <div> 
-                <label for="">Value</label>
-                <input type="text" name="topic"    class="form-control">
+    <nav>
+        <div class="main-nav container flex">
+            <a href="" class="company-logo"></a>
+            <div class="nav-links">
+                <ul class="flex">
+                    <li class="hover-link nav-item" id="home" ><a href="">HOME</a></li>&nbsp;&nbsp;
+                    <li class="hover-link nav-item" id="logout"><a href="http://127.0.0.1:8000/">LOGOUT</a>
+                    </li>&nbsp;&nbsp;
+                </ul>
             </div>
+            <div class="search-bar flex">
+                <form class="example"  method="post" >
+                    {% csrf_token %}
+                    <input type="text" class="news-input" id="search-text" placeholder="e.g. Science" name="query" >
+                    <button class="search-button" id="search-button" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div id="op">
+        <a href="/science" target="_blank">
+            <button>science</button>
+        </a>
+        <a href="/technology" target="_blank">
+            <button>technology</button>
+        </a>
+        <a href="/sports" target="_blank">
+            <button>sports</button>
+        </a>
+        <a href="/business" target="_blank">
+            <button>finance</button>
+        </a>
+        <a href="/health" target="_blank">
+            <button>health</button>
+        </a>
+        <a href="/entertainment" target="_blank">
+            <button>entertainment</button>
+        </a>
+        
+    </div>
+
+    <div class="box">
+        {%for i in l%}
+        <div id="a">
+            <div id="aa" style="background-image: url('{{i.urlToImage}}');background-size: cover;">
+
+            </div>
+            <div id="ab">
+                <a href="{{i.url}}"><b>{{i.title}}</b></a>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
 </body>
+
 </html>

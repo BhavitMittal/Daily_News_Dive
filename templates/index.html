@@ -19,6 +19,8 @@
         body {
             font-family: "Poppins", sans-serif;
             color: var(--primary-text-color);
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         p {
@@ -141,47 +143,48 @@
 
             grid-auto-rows: 350px;
             grid-auto-columns: 400px;
-
+            column-gap: 20px;
+            row-gap: 20px;
         }
 
         #a {
             text-align: center;
-            border: 2px solid red;
+            /* border: 2px solid black; */
         }
 
         #b {
             text-align: center;
-            border: 2px solid red;
+            /* border: 2px solid black; */
         }
 
         #c {
             text-align: center;
-            border: 2px solid red;
+            /* border: 2px solid black; */
         }
 
         #d {
             text-align: center;
-            border: 2px solid red;
+            /* border: 2px solid black; */
         }
 
         #e {
             text-align: center;
-            border: 2px solid red;
+            /* border: 2px solid black; */
         }
 
         #f {
             text-align: center;
-            border: 2px solid red;
+            /* border: 2px solid black; */
         }
 
         #g {
             text-align: center;
-            border: 2px solid red;
+            /* border: 2px solid black; */
         }
 
         #h {
             text-align: center;
-            border: 2px solid red;
+            /* border: 2px solid black; */
         }
 
         #aa {
@@ -192,7 +195,7 @@
 
         #ab {
             height: 100px;
-            background-color: rgb(194, 187, 187);
+            background-color: rgb(135, 249, 249);
         }
 
         #ba {
@@ -275,7 +278,7 @@
             overflow: hidden;
         }
         #aa,#ba,#ca,#da,#ea,#fa,#ga,#ha{
-            border-bottom: 2px solid red;
+            /* border-bottom: 2px solid red; */
         }
 
     </style>
@@ -287,11 +290,10 @@
             <a href="" class="company-logo"></a>
             <div class="nav-links">
                 <ul class="flex">
-                    <li class="hover-link nav-item" id="home">HOME</li>
-                    <li class="hover-link nav-item" id="contact">CONTACT-US</li>
-                    <li class="hover-link nav-item" id="login">LOGIN/SIGN_UP
-                    </li>
-                    <li class="hover-link nav-item" id="about">ABOUT_US</li>
+                    <li class="hover-link nav-item" id="home" ><a href="">HOME</a></li>&nbsp;&nbsp;
+                    <li class="hover-link nav-item" id="login"><a href="/login">LOGIN</a>
+                    </li>&nbsp;&nbsp;
+                    <li class="hover-link nav-item" id="about"><a href="/signup">SIGN UP</a></li>&nbsp;&nbsp;
                 </ul>
             </div>
             <div class="search-bar flex">
@@ -304,11 +306,21 @@
         </div>
     </nav>
     <div id="op">
-        <button type="button">science</button>
-        <button>Technology</button>
-        <button>sports</button>
-        <button>finance</button>
-        <button>education</button>
+        <a href="/science" target="_blank">
+            <button>science</button>
+        </a>
+        <a href="/technology" target="_blank">
+            <button>technology</button>
+        </a>
+        <a href="/sports" target="_blank">
+            <button>sports</button>
+        </a>
+        <a href="/business" target="_blank">
+            <button>finance</button>
+        </a>
+        <a href="/health" target="_blank">
+            <button>health</button>
+        </a>
         <a href="/entertainment" target="_blank">
             <button>entertainment</button>
         </a>
@@ -327,63 +339,7 @@
 
         </div>
         {% endfor %}
-        <!-- <div id="b">
-            <div id="ba">
 
-            </div>
-            <div id="bb">
-                <a href="{{URL1}}"><b>{{Title1}}</b></a>
-            </div>
-
-        </div>
-        <div id="c">
-            <div id="ca">
-
-            </div>
-            <div id="cb">
-                <a href="{{URL2}}"><b>{{Title2}}</b></a>
-            </div>
-        </div>
-        <div id="d">
-            <div id="da">
-
-            </div>
-            <div id="db">
-                <a href="{{URL3}}"><b>{{Title3}}</b></a>
-            </div>
-        </div>
-        <div id="e">
-            <div id="ea">
-
-            </div>
-            <div id="eb">
-                <a href="{{URL4}}"><b>{{Title4}}</b></a>
-            </div> 
-        </div>
-        <div id="f">
-            <div id="fa">
-
-            </div>
-            <div id="fb">
-                <a href="{{URL5}}"><b>{{Title5}}</b></a>
-            </div>
-        </div>
-        <div id="g">
-            <div id="ga">
-
-            </div>
-            <div id="gb">
-                <a href="{{URL6}}"><b>{{Title6}}</b></a>
-            </div>
-        </div>
-        <div id="h">
-            <div id="ha">
-
-            </div>
-            <div id="hb">
-                <a href="{{URL7}}"><b>{{Title7}}</b></a>
-            </div>
-        </div> -->
     </div>
 
 </body>

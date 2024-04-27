@@ -21,10 +21,15 @@ from service import views as s
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', views.index,name='index'),
-    path('',views.home,name=''),
-    path('news/', views.news,name='news'),
-    path('entertainment/', views.entertainment , name='entertainment'),
+    path('',views.index,name='index'),
+    path('home/',views.home,name='home'),
     path('login/', s.Loginpage,name='login'),
-    path('signup/', s.Signuppage,name='signup')
+    path('signup/', s.Signuppage,name='signup'),
+    path('interest/', views.save_interests,name='interest'),
+    path('science/', views.science , name='science'),
+    path('technology/', views.technology , name='technology'),
+    path('sports/', views.sports , name='sports'),
+    path('business/', views.finance , name='finance'),
+    path('health/', views.health , name='health'),
+    path('entertainment/', views.entertainment , name='entertainment')
 ]

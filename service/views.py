@@ -3,9 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
-@login_required(login_url='login')
-def Homepage(request):
-    return render(request,'home.html')
+
 def Signuppage(request):
     if request.method=='POST':    
         uname=request.POST.get('username')
@@ -29,11 +27,11 @@ def Loginpage(request):
         user=authenticate(request,username=username,password=pass1)
         if user is not None:
             login(request,user)
-            return redirect('home')
+            return redirect('interest')
         else:
             return HttpResponse ("Username or Password is incorrect!!!")
 
     return render (request,'login.html')
 def LogoutPage(request):
     logout(request)
-    return redirect('signup')
+    return redirect('index')
